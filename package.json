@@ -3,7 +3,10 @@
   "version": "1.0.1",
   "description": "",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "parcel-build": "parcel build index.html && cp _redirects ./dist/",
+    "serve": "parcel index.html"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,10 +17,7 @@
     "prettier": "1.19.1"
   },
   "dependencies": {
+    "html-literal": "^1.1.0",
     "parcel": "^2.10.3"
-  },
-  "scripts": {
-    "parcel-build": "parcel build index.html && cp _redirects ./dist/",
-    "serve": "parcel index.html"
   }
 }
