@@ -1,10 +1,10 @@
 import { Header, Nav, Main, Footer } from "./components";
-
-function render() {
+import * as store from "./store";
+function render(state = store.Home) {
   document.querySelector("#root").innerHTML = `
-    ${Header()}
-    ${Nav()}
-    ${Main()}
+    ${Header(state)}
+    ${Nav(store.Links)}
+    ${Main(state)}
     ${Footer()}
   `;
 }
