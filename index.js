@@ -12,11 +12,25 @@ function render(state = store.Home) {
     ${Main(state)}
     ${Footer()}
   `;
+  router.updatePageLinks();
 }
 
-router.on("/", () => render(store.Home)).resolve();
+router
+  .on({
+    "/": () => render(),
+    ":view": params => {
+      let view = capitalize(params.data.view);
+      if (view in store) {
+        render(store[view]);
+      } else {
+        render(store.Viewnotfound);
+        console.log(`View ${view} not defined`);
+      }
+    }
+  })
+  .resolve();
 
-render();
+// render();
 
 // add menu toggle to bars icon in nav bar
 // document.querySelector(".fa-bars").addEventListener("click", () => {
